@@ -8,7 +8,7 @@ end
 
 post '/users' do
   @new_user = User.new(params[:user])
-  if params[:user][:password] != params[:password_confirmation]
+  if params[:user][:password] != params[:password_confirm]
   @errors = ['Passwords must match.']
   erb :'users/new'
   else
