@@ -1,14 +1,14 @@
 <div class="page-header">
-  <a href="/"><h1>B&D</h1><h2>Character Creator</h2></a>
+  <a href="/"><h1>D&D</h1><h2>Character Creator</h2></a>
   <nav>
     <% if logged_in? %>
-      <a href="/users/<%= current_user.id %>">Welcome back, <%= current_user.username %></a> | 
+      <a href="/users/<%= current_user.id %>">Welcome back, <%= current_user.username %></a> |
       <form action ="/sessions/<%= current_user.id %>" method="POST" id="logout-form">
         <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="Logout" id="logout-button">
       </form>
     <% else%>
-      <a href ="/sessions/new">Login</a> | 
+      <a href ="/sessions/new">Login</a> |
       <a href="/users/new">Register</a>
     <% end %>
   </nav>
