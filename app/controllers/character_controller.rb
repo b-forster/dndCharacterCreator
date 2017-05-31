@@ -23,6 +23,14 @@ get '/users/:user_id/characters/new' do
   end
 end
 
+get '/users/:user_id/characters/new/roll' do
+  if request.xhr?
+    stat_roll.to_s
+  else
+    erb :'/characters/new'
+  end
+end
+
 post '/users/:user_id/characters' do
   @character = Character.new(params[:character])
   @character.user_id = current_user.id

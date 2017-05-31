@@ -4,6 +4,7 @@ $(document).ready(function() {
   deleteCharListener();
   updatePhotoListener();
   showBonusListener();
+  rollDieListener();
 });
 
 var upVoteListener = function(){
@@ -106,3 +107,22 @@ var showBonusListener = function(){
     })
   });
 }
+
+var rollDieListener = function(){
+  $('.die-img').on('click', function(){
+    var thisDie = $(this);
+    var statVal = thisDie.closest('td').find('.new-char-stat')
+
+    var $request = $.ajax({
+      type: "GET",
+      url: window.location.pathname + "/roll",
+    })
+
+    $request.done(function(response){
+      statVal.val(response);
+    })
+  });
+}
+
+
+
