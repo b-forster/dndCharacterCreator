@@ -122,3 +122,20 @@ th{
 .stat-bonus{
   color:red;
 }
+
+input[type="submit"]{
+  border: 1px solid darkred;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-color: inherit;
+  margin-bottom: 20px;
+  color: darkred;
+  font-variant: small-caps;
+  font-size: 1.5em;
+}
+
+input[type="submit"]:hover{
+  background-color: darkred;
+  color: #F5F5F5;
+}
+
