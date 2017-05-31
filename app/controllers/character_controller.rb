@@ -32,7 +32,9 @@ end
 
 post '/users/:user_id/characters' do
   @character = Character.new(params[:character])
-  @character.user_id = current_user.id
+
+  if @character.valid?
+    @character.user_id = current_user.id
 
     @race = @character.race
 
@@ -41,17 +43,20 @@ post '/users/:user_id/characters' do
     @racial_bonuses_array = @api[0]["racial_bonus"]
     @racial_bonuses_hash = Hash.new
 
-    @racial_bonuses_array.each do |hash| 
+    @racial_bonuses_array.each do |hash|
       @racial_bonuses_hash[hash["name"]] = hash["bonus"]
     end
-    
+
     @racial_bonuses_hash.each do |key, value|
       stat = key.downcase.to_s
       @character[stat] += value
     end
-
-  if @character.save
-    redirect "/users/#{current_user.id}"
+    if @character.save
+      redirect "/users/#{current_user.id}"
+    else
+      @errors = @character.errors.full_messages
+      erb :'/characters/new'
+    end
   else
     @errors = @character.errors.full_messages
     erb :'/characters/new'
