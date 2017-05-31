@@ -8,12 +8,17 @@ end
 
 post '/users' do
   @new_user = User.new(params[:user])
-  if @new_user.save
-    login(@new_user)
-    redirect "/users/#{current_user.id}"
+  if params[:user][:password] != params[:password_confirmation]
+  @errors = ['Passwords must match.']
+  erb :'users/new'
   else
-    @errors = @new_user.errors.full_messages
-    erb :'users/new'
+    if @new_user.save
+      login(@new_user)
+      redirect "/users/#{current_user.id}"
+    else
+      @errors = @new_user.errors.full_messages
+      erb :'users/new'
+    end
   end
 end
 
