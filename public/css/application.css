@@ -121,6 +121,7 @@ th{
 
 .stat-bonus{
   color:red;
+  /* white-space: pre; */
 }
 
 input[type="submit"]{
