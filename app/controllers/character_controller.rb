@@ -8,13 +8,6 @@ get '/users/:user_id/characters' do
 end
 
 get '/users/:user_id/characters/new' do
-  @stat_roll1 = stat_roll
-  @stat_roll2 = stat_roll
-  @stat_roll3 = stat_roll
-  @stat_roll4 = stat_roll
-  @stat_roll5 = stat_roll
-  @stat_roll6 = stat_roll
-
   if request.xhr?
 
     @race = params["race"]

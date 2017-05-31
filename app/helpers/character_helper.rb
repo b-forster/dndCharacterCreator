@@ -1,8 +1,8 @@
-helpers do 
+helpers do
   def stat_roll
     die = [1,2,3,4,5,6]
     rolls = []
-      4.times do 
+      4.times do
         rolls << die.sample
       end
     rolls.sort.reverse
