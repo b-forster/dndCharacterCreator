@@ -25,7 +25,7 @@ An older version of this app is currently live on [Heroku](https://fathomless-fo
 
 This repository is maintained by [Brianna Forster](https://github.com/b-forster).
 
-It was forked from an earlier [pair project](https://github.com/dmetas/passionProject/tree/577a5ed3824916a39baf2052295f81704718c4d5) with [Dylan Metas]](https://github.com/dmetas).
+It was forked from an earlier [pair project](https://github.com/dmetas/passionProject/tree/577a5ed3824916a39baf2052295f81704718c4d5) with [Dylan Metas](https://github.com/dmetas).
 
 ## Contributing
 
