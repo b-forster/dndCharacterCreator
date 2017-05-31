@@ -32,9 +32,9 @@ end
 
 post '/users/:user_id/characters' do
   @character = Character.new(params[:character])
+  @character.user_id = current_user.id
 
   if @character.valid?
-    @character.user_id = current_user.id
 
     @race = @character.race
 
