@@ -1,5 +1,3 @@
-<iframe width="1" height="1" wmode="transparent" src="//www.youtube.com/embed/3p8jLMz0lu8?autoplay=1&loop=1&playlist=3p8jLMz0lu8" frameborder="0" allowfullscreen></iframe>
-
 <div class="page-content">
 <div class="char-stats-div">
 <form action='/users/<%=current_user.id%>/characters' method="POST">
@@ -7,7 +5,7 @@
     <tr>
       <th><label for="new-char-name">Name: </label></th>
       <td><input type="text" class="handwritten" id="new-char-name" name="character[name]"></td>
-    </tr> 
+    </tr>
     <tr>
       <th><label for="new-char-class">Class: </label></th>
       <td><select class="handwritten" id="new-char-class" name="character[character_class]">
@@ -59,27 +57,27 @@
     <tr>
       <th><label for="new-char-lvl">Level: </label></th>
       <td><input type="integer" id="new-char-lvl" class="new-char-stat handwritten" maxlength=3 value = "1" name="character[level]"></td>
-    </tr> 
+    </tr>
     <tr>
       <th><label for="new-char-str">Strength: </label></th>
       <td><input type="integer" id="new-char-str" class="new-char-stat handwritten" maxlength=3 value = "<%=@stat_roll1%>" name="character[strength]"><span class="stat-bonus" id="Strength">&nbsp;&nbsp;&nbsp;</span></td>
-    </tr> 
+    </tr>
     <tr>
       <th><label for="new-char-dex">Dexterity: </label></th>
       <td><input type="integer" id="new-char-dex" class="new-char-stat handwritten" maxlength=3 value = "<%=@stat_roll2%>" name="character[dexterity]"><span class="stat-bonus" id="Dexterity">&nbsp;&nbsp;&nbsp;</span></td>
-    </tr> 
+    </tr>
     <tr>
       <th><label for="new-char-con">Constitution: </label></th>
       <td><input type="integer" id="new-char-con" class="new-char-stat handwritten" maxlength=3 value = "<%=@stat_roll3%>" name="character[constitution]"><span class="stat-bonus" id="Constitution">&nbsp;&nbsp;&nbsp;</span></td>
-    </tr> 
+    </tr>
     <tr>
       <th><label for="new-char-int">Intelligence: </label></th>
       <td><input type="integer" id="new-char-int" class="new-char-stat handwritten" maxlength=3 value = "<%=@stat_roll4%>" name="character[intelligence]"><span class="stat-bonus" id="Intelligence">&nbsp;&nbsp;&nbsp;</span></td>
-    </tr> 
+    </tr>
     <tr>
       <th><label for="new-char-wis">Wisdom: </label></th>
       <td><input type="integer" id="new-char-wis" class="new-char-stat handwritten" maxlength=3 value = "<%=@stat_roll5%>" name="character[wisdom]"><span class="stat-bonus" id="Wisdom">&nbsp;&nbsp;&nbsp;</span></td>
-    </tr> 
+    </tr>
     <tr>
       <th><label for="new-char-cha">Charisma: </label></th>
       <td><input type="integer" id="new-char-cha" class="new-char-stat handwritten" maxlength=3 value = "<%=@stat_roll6%>" name="character[charisma]"><span class="stat-bonus" id="Charisma">&nbsp;&nbsp;&nbsp;</span></td>
