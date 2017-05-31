@@ -108,19 +108,24 @@ var showBonusListener = function(){
   });
 }
 
+var statRoll = function(){
+  var die = [1,2,3,4,5,6];
+    var rolls = [];
+      for (var i = 0; i < 4; i++){
+        var oneRoll = die[Math.floor(Math.random() * die.length)];
+        rolls.push(oneRoll);
+      }
+    rolls.sort().reverse()
+    var totalRoll = rolls[0] + rolls[1] + rolls[3]
+    return totalRoll
+}
+
 var rollDieListener = function(){
   $('.die-img').on('click', function(){
     var thisDie = $(this);
     var statVal = thisDie.closest('td').find('.new-char-stat')
 
-    var $request = $.ajax({
-      type: "GET",
-      url: window.location.pathname + "/roll",
-    })
-
-    $request.done(function(response){
-      statVal.val(response);
-    })
+    statVal.val(statRoll);
   });
 }
 
