@@ -86,25 +86,33 @@ var updatePhotoListener = function(){
   })
 }
 
+var getBonusesObj = function(race){
+  var apiCall = $.get("http://5e-api.com/v1/races/" + race);
+  debugger
+
+  var racialBonusesArray = apiCall.responseJSON[0]["racial_bonus"];
+  var racialBonusesObj = {};
+
+  for (var i = 0; i < racialBonusesArray.length; i++){
+    racialBonusesObj[racialBonusesArray[i].name] = racialBonusesArray[i].bonus;
+  }
+
+  return racialBonusesObj;
+}
+
 var showBonusListener = function(){
   $("#new-char-race").on("change", function(){
     var charRace = $(this).val();
 
-    var $request = $.ajax({
-      type: "GET",
-      url: window.location.pathname,
-      data: { "race": charRace }
-    })
+    var bonusesObj = getBonusesObj(charRace);
 
-    $request.done(function(response){
-      $(".stat-bonus").text("   ")
+    $(".stat-bonus").text("   ")
 
-      var bonusesObj = JSON.parse(response);
-      for (var bonusAttr in bonusesObj) {
-        var bonusVal = bonusesObj[bonusAttr];
-        $("#" + bonusAttr).append(" + <span class='bonus-val'>" + bonusVal + "</span>")
-      }
-    })
+    for (var bonusAttr in bonusesObj) {
+      var bonusVal = bonusesObj[bonusAttr];
+      $("#" + bonusAttr).append(" + <span class='bonus-val'>" + bonusVal + "</span>")
+
+    }
   });
 }
 

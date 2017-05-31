@@ -8,19 +8,19 @@ get '/users/:user_id/characters' do
 end
 
 get '/users/:user_id/characters/new' do
-  if request.xhr?
+  # if request.xhr?
 
-    @race = params["race"]
+  #   @race = params["race"]
 
-    @api = HTTParty.get("http://5e-api.com/v1/races/#{@race}")
+  #   @api = HTTParty.get("http://5e-api.com/v1/races/#{@race}")
 
-    @racial_bonuses_array = @api[0]["racial_bonus"]
-    @racial_bonuses_hash = Hash.new
-    @racial_bonuses_array.each {|hash| @racial_bonuses_hash[hash["name"]] = hash["bonus"]}
-    @racial_bonuses_hash.to_json
-  else
+  #   @racial_bonuses_array = @api[0]["racial_bonus"]
+  #   @racial_bonuses_hash = Hash.new
+  #   @racial_bonuses_array.each {|hash| @racial_bonuses_hash[hash["name"]] = hash["bonus"]}
+  #   @racial_bonuses_hash.to_json
+  # else
     erb :'/characters/new'
-  end
+  # end
 end
 
 post '/users/:user_id/characters' do
