@@ -1,6 +1,6 @@
 body{
   margin: 2%;
-  width: 80%;
+  max-width: 80%;
   font-family: 'Roboto', sans-serif;
   background-color: #F5F5F5;
   /*background-image: url("/images/stone-background-1.jpg");*/
@@ -155,5 +155,46 @@ input[type="submit"]:hover{
     transform: rotate(30deg);
 }
 
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: hotpink;
+    font-size: 150%;
+  }
+  .char-img-div, .char-stats-div{
+    width: 100%;
+  }
+  nav{
+    text-align: center;
 
+    padding: 50px 0;
+  }
+  .login-prompt{
+    display: none;
+  }
+  .dragon-img{
+    width: 80%;
+  }
+  #login-form, #reg-form{
+    text-align: center;
+  }
+
+  input[type="text"], input[type="password"]{
+    height: 1.5em;
+    width: 50%;
+    margin-top: 10px;
+  }
+
+  label {
+    font-size: 1.3em;
+  }
+
+  textarea{
+    width: 100%;
+  }
+
+  .die-img{
+    width: 1.5em;
+    height: 1.5em;
+  }
+}
 

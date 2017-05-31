@@ -2,7 +2,7 @@
   <a href="/"><h1>D&D</h1><h2>Character Creator</h2></a>
   <nav>
     <% if logged_in? %>
-      <a href="/users/<%= current_user.id %>">Welcome back, <%= current_user.username %></a> |
+      <a href="/users/<%= current_user.id %>"><%= current_user.username %>'s Characters</a> |
       <form action ="/sessions/<%= current_user.id %>" method="POST" id="logout-form">
         <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="Logout" id="logout-button">
