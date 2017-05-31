@@ -44,6 +44,17 @@ td{
   color:red;
 }
 
+.error-item{
+  vertical-align: bottom;
+}
+
+.error-item:before{
+  content: "⚠";
+  display: inline-block;
+  float: left;
+  vertical-align: middle;
+}
+
 a {
   text-decoration: none;
   color:#801505
@@ -54,16 +65,22 @@ a {
   text-align: center;
   margin: 0 auto;
   font-family: 'Cinzel Decorative', cursive;
+  text-shadow: 2px 2px 4px gray;
 }
 
 h1{
-  font-size: 2.2em;
+  font-size: 2.4em;
+
+}
+
+#login-prompt{
+  text-align: center;
 }
 
 #logout-button{
   background:none!important;
   color:inherit;
-  border:none; 
+  border:none;
   padding:0!important;
   font: inherit;
   cursor: pointer;
@@ -89,8 +106,10 @@ th{
 
 .dragon-img{
   display: block;
-  margin: 5% 15%;
+  margin: 0 auto;
+  padding: 0px;
   vertical-align: middle;
+  box-shadow: 2px 2px 2px gray;
 }
 
 .char-stats-div{
