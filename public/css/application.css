@@ -144,3 +144,14 @@ input[type="submit"]:hover{
   width: 30px;
   vertical-align: middle;
 }
+
+.die-img:active{
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  -ms-transform: rotate(30deg); /* IE 9 */
+    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+    transform: rotate(30deg);
+}
+
+
+
