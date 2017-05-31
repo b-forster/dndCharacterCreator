@@ -86,33 +86,35 @@ var updatePhotoListener = function(){
   })
 }
 
-var getBonusesObj = function(race){
-  var apiCall = $.get("http://5e-api.com/v1/races/" + race);
-  debugger
-
-  var racialBonusesArray = apiCall.responseJSON[0]["racial_bonus"];
+var getBonusesObj = function(){
   var racialBonusesObj = {};
+  var returnObj;
 
-  for (var i = 0; i < racialBonusesArray.length; i++){
-    racialBonusesObj[racialBonusesArray[i].name] = racialBonusesArray[i].bonus;
-  }
+  var apiCall = $.ajax({
+    url: "http://5e-api.com/v1/races/Gnome",
+    dataType: "json"
+  });
 
-  return racialBonusesObj;
+  apiCall.done(function(response){
+    var racialBonusesArray = apiCall.responseJSON[0].racial_bonus;
+    var len = racialBonusesArray.length
+
+
+    for (var i = 0; i < len; i++){
+      var attrName = racialBonusesArray[i]["name"];
+      var attrBonus = racialBonusesArray[i]["bonus"];
+      racialBonusesObj[attrName] = attrBonus;
+    }
+    returnObj = JSON.parse(JSON.stringify(racialBonusesObj))
+    debugger
+  });
 }
 
 var showBonusListener = function(){
   $("#new-char-race").on("change", function(){
     var charRace = $(this).val();
-
-    var bonusesObj = getBonusesObj(charRace);
-
-    $(".stat-bonus").text("   ")
-
-    for (var bonusAttr in bonusesObj) {
-      var bonusVal = bonusesObj[bonusAttr];
-      $("#" + bonusAttr).append(" + <span class='bonus-val'>" + bonusVal + "</span>")
-
-    }
+    $(".stat-bonus").text("   ");
+    getBonusesObj();
   });
 }
 
