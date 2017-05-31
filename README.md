@@ -2,7 +2,7 @@
 
 **D&D Character Creator** is a handy character creation app based on the 5th Edition handbook of Dungeons & Dragons. It allows you to create multiple characters and keep track of their stat changes as they progress in their adventures.
 
-An older version of this app is currently live on [Heroku](https://fathomless-forest-59120.herokuapp.com/). It is not yet optimized for mobile use.
+This app is currently live on [Heroku](https://dnd-char-creator.herokuapp.com/). 
 
 ## Basic Use
 
