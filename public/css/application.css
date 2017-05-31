@@ -44,15 +44,10 @@ td{
   color:red;
 }
 
-.error-item{
-  vertical-align: bottom;
-}
-
 .error-item:before{
   content: "⚠";
   display: inline-block;
-  float: left;
-  vertical-align: middle;
+  padding-right: 5px;
 }
 
 a {
