@@ -1,30 +1,34 @@
->  **Note**: This branch (master) contains a skeleton without any app code, perfect for creating a _new_ application or challenge. If you're looking for an example app built with this skeleton, take a look at the [example](/../..//tree/example) branch which includes basic CRUD and RSpec tests.
+# D&D Character Creator
 
-### Purpose
-The Sinatra Skeleton:
+**D&D Character Creator** is a handy character creation app based on the 5th Edition handbook of Dungeons & Dragons. It allows you to create multiple characters and keep track of their stat changes as they progress in their adventures.
 
-1. Provides a foundation for building challenges or creating a new Sinatra application.
-2. Demonstrates a reasonable set of practices around building Sinatra applications.
-3. Eases the transition to Rails for Dev Bootcamp students
+An older version of this app is currently live on [Heroku](https://fathomless-forest-59120.herokuapp.com/). It is not yet optimized for mobile use.
 
-### Quickstart
+## Basic Use
 
-1.  `bundle install`
-2.  `shotgun config.ru`
+- Create a user account.
+- At the user profile page, click the 'Create character' link.
+- Fill out all required fields and click the 'Create' button.
+- View a list of all of your characters on the user profile page.
+- Click on a character's name to view their stats and other information.
+- Use the arrow buttons next to each stat to update the character's information as you progress in your campaign.
 
-As needed, create models & migrations with the `rake` tasks:
+## Tech Stack
 
-```
-rake generate:migration  # Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks
-rake generate:model      # Create an empty model in app/models, e.g., rake generate:model NAME=User
-```
+ * Ruby
+ * Sinatra
+ * JQuery/AJAX
+ * [D&D 5e API](http://www.dnd5eapi.co/)
+ * Heroku
 
-### Contributing
+## Authors
 
-We would love for you to help make the skeleton more awesome, There are three ways to contribute:
+This repository is maintained by [Brianna Forster](https://github.com/b-forster).
 
-1. Ask for a bug fix or enhancement!
-2. Submit a pull request for a bug fix or enhancement!
-3. Code review an open pull request!
+It was forked from an earlier [pair project](https://github.com/dmetas/passionProject/tree/577a5ed3824916a39baf2052295f81704718c4d5) with [Dylan Metas]](https://github.com/dmetas).
 
-Be prepared to give and receive specific, actionable, and kind feedback!
+## Contributing
+
+If you'd like to contribute, please fork the repository and use a feature
+branch. Pull requests are warmly welcome.
+
