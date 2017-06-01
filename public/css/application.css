@@ -99,7 +99,12 @@ th{
   box-shadow: 2px 2px 2px gray;
 }
 
-.char-stats-div{
+.create-stats-div{
+  margin: 0 auto;
+  width:60%;
+}
+
+.view-stats-div{
   float:left;
   width:48%;
 }
@@ -161,7 +166,7 @@ input[type="submit"]:hover{
     font-size: 300%;
     width: 100%;
   }
-  .char-stats-div, table{
+  .view-stats-div, table{
     width: 80%;
     margin: 0 auto;
     float:none;
@@ -183,9 +188,14 @@ input[type="submit"]:hover{
     text-align: center;
   }
 
-  .login-prompt, th{
+  .login-prompt{
     display: none;
   }
+
+  .view-stats-div th{
+    display: none;
+  }
+
   .dragon-img{
     width: 80%;
   }
@@ -211,8 +221,8 @@ input[type="submit"]:hover{
   }
 
   .die-img{
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.8em;
+    height: 1.8em;
   }
 
   .upvote-form, .downvote-form{

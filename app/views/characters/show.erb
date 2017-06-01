@@ -1,6 +1,6 @@
 <div class="page-content">
 <h3><%=@character.name%> the <%=@character.race%> <%=@character.character_class%> </h3>
-<div class="char-stats-div">
+<div class="view-stats-div">
   <table>
     <tr>
       <th>Stats</th>
@@ -35,7 +35,7 @@
       <td>Wisdom</td>
       <td class="val_to_change handwritten"><%=@character.wisdom%></td>
       <td><%= erb :'characters/_arrows', locals: { attribute: 'wisdom', attribute_val: @character.wisdom, character: @character } %></td>
-    </tr> 
+    </tr>
     <tr>
       <td>Charisma</td>
       <td class="val_to_change handwritten"><%=@character.charisma%></td>
