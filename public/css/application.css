@@ -161,6 +161,10 @@ input[type="submit"]:hover{
     transform: rotate(30deg);
 }
 
+#link-to-create-char{
+  margin-top: 100px;
+}
+
 @media (orientation: portrait) {
   body {
     font-size: 300%;
