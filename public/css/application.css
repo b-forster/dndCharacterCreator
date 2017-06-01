@@ -83,14 +83,6 @@ h1{
   display: inline;
 }
 
-#upvote-button, #downvote-button{
-  font-size: 0.7em;
-  padding: 0px;
-  border: 0px;
-  margin: 2px;
-  width: 1.3em;
-}
-
 th{
   text-align: left;
 }
@@ -139,6 +131,17 @@ input[type="submit"]:hover{
   color: #F5F5F5;
 }
 
+.upvote-button, .downvote-button{
+  font-size: 1em;
+  padding: 0px!important;
+  border: 0px;
+  margin: 0 auto;
+  margin-bottom: 5px!important;
+  text-align: center;
+  vertical-align: center;
+  border: none!important;
+}
+
 .die-img{
   height: 30px;
   width: 30px;
@@ -155,35 +158,53 @@ input[type="submit"]:hover{
 
 @media (orientation: portrait) {
   body {
-    font-size: 150%;
-  }
-  .char-img-div, .char-stats-div{
+    font-size: 300%;
     width: 100%;
   }
+  .char-stats-div, table{
+    width: 80%;
+    margin: 0 auto;
+    float:none;
+  }
+
+  .char-img-div{
+    float: none;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+
   nav{
     text-align: center;
-
     padding: 50px 0;
   }
-  .login-prompt{
+
+  h2, h3, #char-list{
+    text-align: center;
+  }
+
+  .login-prompt, th{
     display: none;
   }
   .dragon-img{
     width: 80%;
   }
-  #login-form, #reg-form{
+  #login-form, #reg-form, .errors-container, form{
     text-align: center;
   }
 
   input[type="text"], input[type="password"]{
-    height: 1.5em;
-    width: 50%;
+    height: 2em;
+    width: 60%;
     margin-top: 10px;
   }
 
-  label {
-    font-size: 1.3em;
+  input[type="submit"]{
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
   }
+
 
   textarea{
     width: 100%;
@@ -192,6 +213,12 @@ input[type="submit"]:hover{
   .die-img{
     width: 1.5em;
     height: 1.5em;
+  }
+
+  .upvote-form, .downvote-form{
+    display: inline-block;
+    margin: 10px;
+    font-size: 1.2em;
   }
 }
 
