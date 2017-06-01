@@ -176,6 +176,18 @@ input[type="submit"]:hover{
     float:none;
   }
 
+   .view-stats-div th{
+    display: none;
+  }
+
+  .create-stats-div td{
+    text-align: left;
+    padding: 20px 60px;
+  }
+
+
+
+
   .char-img-div{
     float: none;
     margin: 0 auto;
@@ -186,6 +198,7 @@ input[type="submit"]:hover{
   nav{
     text-align: center;
     padding: 50px 0;
+    font-size: 1.3em;
   }
 
   h2, h3, #char-list{
@@ -196,9 +209,6 @@ input[type="submit"]:hover{
     display: none;
   }
 
-  .view-stats-div th{
-    display: none;
-  }
 
   .dragon-img{
     width: 80%;
@@ -228,6 +238,7 @@ input[type="submit"]:hover{
   .die-img{
     width: 1.8em;
     height: 1.8em;
+    padding-left: 20px;
   }
 
   .upvote-form, .downvote-form{
