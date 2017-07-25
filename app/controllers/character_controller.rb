@@ -1,26 +1,9 @@
-before do
-  # find_by_user_id_and_project_id(params[:user_id],params[:project_id])
-  # @character = find_by()
-end
-
 get '/users/:user_id/characters' do
   erb :'characters/index'
 end
 
 get '/users/:user_id/characters/new' do
-  # if request.xhr?
-
-  #   @race = params["race"]
-
-  #   @api = HTTParty.get("http://5e-api.com/v1/races/#{@race}")
-
-  #   @racial_bonuses_array = @api[0]["racial_bonus"]
-  #   @racial_bonuses_hash = Hash.new
-  #   @racial_bonuses_array.each {|hash| @racial_bonuses_hash[hash["name"]] = hash["bonus"]}
-  #   @racial_bonuses_hash.to_json
-  # else
     erb :'/characters/new'
-  # end
 end
 
 post '/users/:user_id/characters' do
@@ -31,7 +14,6 @@ post '/users/:user_id/characters' do
 
     @race = @character.race
 
-    @api = HTTParty.get("http://5e-api.com/v1/races/#{@race}")
 
     @racial_bonuses_array = @api[0]["racial_bonus"]
     @racial_bonuses_hash = Hash.new
