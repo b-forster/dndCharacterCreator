@@ -3,7 +3,8 @@ get '/users/:user_id/characters' do
 end
 
 get '/users/:user_id/characters/new' do
-    erb :'/characters/new'
+  @races_array = Dnd5eAdapter.generate_races_array
+  erb :'/characters/new'
 end
 
 post '/users/:user_id/characters' do

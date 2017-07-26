@@ -10,8 +10,8 @@
       <th><label for="new-char-race">Race: </label></th>
       <td><select class="handwritten" id="new-char-race" name="character[race]">
       <option></option>
-      <% Dnd5eAdapter.generate_races_array.each do |race| %>
-          <option value="#{race}"><%= race %></option>
+      <% @races_array.each do |race| %>
+          <option value="<%= race %>"><%= race %></option>
       <% end %>
     </select></td>
     </tr>
