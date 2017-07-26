@@ -12,7 +12,12 @@ module Dnd5eAdapter
       end
     end
 
-    p $race_num_hash
+    $race_num_hash
+  end
+
+  def self.generate_races_array
+    Dnd5eAdapter.generate_race_num_hash if !$race_num_hash
+    $races_array = $race_num_hash.keys
   end
 
   def self.get_race_num(race)
@@ -20,9 +25,20 @@ module Dnd5eAdapter
     $race_num_hash[race].to_s
   end
 
-  def self.racial_bonus(race)
+  def self.get_racial_bonuses_array(race)
     race_num = Dnd5eAdapter.get_race_num(race)
     racial_bonus_obj = HTTParty.get("http://5e-api.com/v1/race/#{race_num}")
-    p racial_bonuses_array = racial_bonus_obj["ability_bonuses"]
+    racial_bonuses_array = racial_bonus_obj["ability_bonuses"]
+  end
+
+  def self.generate_racial_bonus_hash(race)
+    racial_bonuses_array = Dnd5eAdapter.get_racial_bonuses_array(race)
+    racial_bonus_hash = {}
+
+    racial_bonuses_array.each do |bonus|
+      racial_bonus_hash[bonus["ability"]["name"]] = bonus["bonus"].to_s
+    end
+
+    racial_bonus_hash
   end
 end

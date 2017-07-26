@@ -7,6 +7,15 @@
       <td><input type="text" class="handwritten" id="new-char-name" name="character[name]"></td>
     </tr>
     <tr>
+      <th><label for="new-char-race">Race: </label></th>
+      <td><select class="handwritten" id="new-char-race" name="character[race]">
+      <option></option>
+      <% Dnd5eAdapter.generate_races_array.each do |race| %>
+          <option value="#{race}"><%= race %></option>
+      <% end %>
+    </select></td>
+    </tr>
+    <tr>
       <th><label for="new-char-class">Class: </label></th>
       <td><select class="handwritten" id="new-char-class" name="character[character_class]">
         <option></option>
@@ -23,21 +32,6 @@
         <option value="Warlock">Warlock</option>
         <option value="Wizard">Wizard</option>
       </select></td>
-    </tr>
-    <tr>
-      <th><label for="new-char-race">Race: </label></th>
-      <td><select class="handwritten" id="new-char-race" name="character[race]">
-      <option></option>
-      <option value="Dragonborn">Dragonborn</option>
-      <option value="Dwarf">Dwarf</option>
-      <option value="Elf">Elf</option>
-      <option value="Gnome">Gnome</option>
-      <option value="Half-Elf">Half-Elf</option>
-      <option value="Half-Orc">Half-Orc</option>
-      <option value="Halfling">Halfling</option>
-      <option value="Human">Human</option>
-      <option value="Tiefling">Tiefling</option>
-    </select></td>
     </tr>
     <tr>
       <th><label for="new-char-alignment">Alignment: </label></th>

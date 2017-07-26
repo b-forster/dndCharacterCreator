@@ -15,12 +15,7 @@ post '/users/:user_id/characters' do
     @race = @character.race
 
 
-    @racial_bonuses_array = @api[0]["racial_bonus"]
-    @racial_bonuses_hash = Hash.new
-
-    @racial_bonuses_array.each do |hash|
-      @racial_bonuses_hash[hash["name"]] = hash["bonus"]
-    end
+    @racial_bonuses_hash = Dnd5eAdapter.generate_racial_bonus_hash(race)
 
     @racial_bonuses_hash.each do |key, value|
       stat = key.downcase.to_s
