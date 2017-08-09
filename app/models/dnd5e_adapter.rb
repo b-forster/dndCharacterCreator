@@ -36,7 +36,7 @@ module Dnd5eAdapter
     racial_bonus_hash = {}
 
     racial_bonuses_array.each do |bonus|
-      racial_bonus_hash[bonus["ability"]["name"]] = bonus["bonus"].to_s
+      racial_bonus_hash[(bonus["ability"]["name"].downcase + "_bonus").to_sym] = bonus["bonus"].to_i
     end
 
     racial_bonus_hash
