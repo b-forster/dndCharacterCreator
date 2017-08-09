@@ -17,9 +17,9 @@ Character.destroy_all
 # char.save
 
 p races_array = Dnd5eAdapter.generate_races_array
-# sleep 60
+sleep 60
 races_array.each do |race|
   # bonus_hash = Dnd5eAdapter.generate_racial_bonus_hash(race)
   new_race = Race.create_with(Dnd5eAdapter.generate_racial_bonus_hash(race)).find_or_create_by(name: race)
-  # sleep 60 
+  sleep 60 
 end
