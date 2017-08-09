@@ -12,7 +12,7 @@ module Dnd5eAdapter
       end
     end
 
-    $race_num_hash
+    $race_num_hash  # return array of hashes, pass to create method in seed file
   end
 
   def self.generate_races_array

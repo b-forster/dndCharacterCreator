@@ -91,7 +91,8 @@ var getBonusesObj = function(race){
   var returnObj;
 
   var $apiCall = $.ajax({
-    url: "https://cors-anywhere.herokuapp.com/http://5e-api.com/v1/race/" + race,
+    url: ""
+    method: "post"
     dataType: "json"
   });
 

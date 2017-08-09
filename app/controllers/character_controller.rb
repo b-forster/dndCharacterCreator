@@ -31,6 +31,10 @@ post '/users/:user_id/characters' do
   else
     @errors = @character.errors.full_messages
     erb :'characters/new'
+
+    if request.xhr?
+      @racial_bonuses_hash.to_json
+    end
   end
 end
 
