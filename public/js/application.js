@@ -87,29 +87,18 @@ var updatePhotoListener = function(){
 }
 
 var getBonusesObj = function(race){
-  var racialBonusesObj = {};
-  var returnObj;
 
-  var $apiCall = $.ajax({
-    url: ""
-    method: "post"
+  var $bonusesObj = $.ajax({
+    url: "/races/" + race,
+    method: "get",
     dataType: "json"
   });
 
-  $apiCall.done(function(response){
-    var racialBonusesArray = $apiCall.responseJSON[0].racial_bonus;
-    var len = racialBonusesArray.length
-
-
-    for (var i = 0; i < len; i++){
-      var attrName = racialBonusesArray[i]["name"];
-      var attrBonus = racialBonusesArray[i]["bonus"];
-      racialBonusesObj[attrName] = attrBonus;
-    }
-
-    var bonusesObj = JSON.parse(JSON.stringify(racialBonusesObj))
-      for (var bonusAttr in bonusesObj) {
-        var bonusVal = bonusesObj[bonusAttr];
+  $bonusesObj.done(function(response){
+    console.log(response)
+    // var bonusesObj = JSON.parse(JSON.stringify(response))
+      for (var bonusAttr in response) {
+        var bonusVal = response[bonusAttr];
         $("#" + bonusAttr).append(" + <span class='bonus-val'>" + bonusVal + "</span>")
       }
   });

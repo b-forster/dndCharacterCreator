@@ -13,15 +13,31 @@ post '/users/:user_id/characters' do
 
   if @character.valid?
 
-    @race = @character.race
+    # Add racial bonuses to stats of newly created character
 
+    p @race = @character.race
 
-    @racial_bonuses_hash = Dnd5eAdapter.generate_racial_bonus_hash(race)
+    # char_attr_arr = ["strength", 
+    #                  "dexterity", 
+    #                  "constitution", 
+    #                  "intelligence",
+    #                  "wisdom",
+    #                  "charisma"]
 
-    @racial_bonuses_hash.each do |key, value|
-      stat = key.downcase.to_s
-      @character[stat] += value
-    end
+    @character.strength  += @race.strength_bonus
+    @character.dexterity += @race.dexterity_bonus
+    @character.constitution += @race.constitution_bonus
+    @character.intelligence += @race.intelligence_bonus
+    @character.wisdom += @race.wisdom_bonus
+    @character.charisma += @race.charisma_bonus
+    
+
+    # @racial_bonuses_hash = Dnd5eAdapter.generate_racial_bonus_hash(race)
+
+    # @racial_bonuses_hash.each do |key, value|
+    #   stat = key.downcase.to_s
+    #   @character[stat] += value
+    # end
     if @character.save
       redirect "/users/#{current_user.id}"
     else
