@@ -8,36 +8,27 @@ get '/users/:user_id/characters/new' do
 end
 
 post '/users/:user_id/characters' do
-  @character = Character.new(params[:character])
-  @character.user_id = current_user.id
+  p "*" * 100 
+
+  race_name = params[:character][:race]
+  race_object = Race.find_by(name: race_name)
+  params[:character]["race"] = race_object
+  params[:character]["user_id"] = current_user.id
+  p @character = Character.new(params[:character])
+
+  p params
 
   if @character.valid?
 
-    # Add racial bonuses to stats of newly created character
+  #   # Add racial bonuses to stats of newly created character
 
-    p @race = @character.race
-
-    # char_attr_arr = ["strength", 
-    #                  "dexterity", 
-    #                  "constitution", 
-    #                  "intelligence",
-    #                  "wisdom",
-    #                  "charisma"]
-
-    @character.strength  += @race.strength_bonus
-    @character.dexterity += @race.dexterity_bonus
-    @character.constitution += @race.constitution_bonus
-    @character.intelligence += @race.intelligence_bonus
-    @character.wisdom += @race.wisdom_bonus
-    @character.charisma += @race.charisma_bonus
+    @character.strength  += race_object.strength_bonus
+    @character.dexterity += race_object.dexterity_bonus
+    @character.constitution += race_object.constitution_bonus
+    @character.intelligence += race_object.intelligence_bonus
+    @character.wisdom += race_object.wisdom_bonus
+    @character.charisma += race_object.charisma_bonus
     
-
-    # @racial_bonuses_hash = Dnd5eAdapter.generate_racial_bonus_hash(race)
-
-    # @racial_bonuses_hash.each do |key, value|
-    #   stat = key.downcase.to_s
-    #   @character[stat] += value
-    # end
     if @character.save
       redirect "/users/#{current_user.id}"
     else
@@ -47,10 +38,6 @@ post '/users/:user_id/characters' do
   else
     @errors = @character.errors.full_messages
     erb :'characters/new'
-
-    if request.xhr?
-      @racial_bonuses_hash.to_json
-    end
   end
 end
 
