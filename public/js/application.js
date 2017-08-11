@@ -86,21 +86,30 @@ var updatePhotoListener = function(){
   })
 }
 
-var getBonusesObj = function(race){
+var getRaceStats = function(race){
 
-  var $bonusesObj = $.ajax({
+  var $raceStatsCall = $.ajax({
     url: "/races/" + race,
     method: "get",
     dataType: "json"
   });
 
-  $bonusesObj.done(function(response){
-    console.log(response)
-    // var bonusesObj = JSON.parse(JSON.stringify(response))
-      for (var bonusAttr in response) {
-        var bonusVal = response[bonusAttr];
-        $("#" + bonusAttr).append(" + <span class='bonus-val'>" + bonusVal + "</span>")
+  $raceStatsCall.done(function(response){
+    var raceStatsObj = response;
+    var racialBonusesObj = {};
+
+    for (var raceColumn in raceStatsObj) {
+      if(raceColumn.includes("_bonus")){
+        racialBonusesObj[raceColumn.replace('_bonus','')] = response[raceColumn]
       }
+    }
+    console.log(racialBonusesObj)
+    Object.keys(racialBonusesObj).forEach(function(stat){
+      var bonusVal = racialBonusesObj[stat];
+      // Need stats to show up on page
+      // console.log("#" + stat)
+      // $("#" + (stat)).append(" + <span class='bonus-val'>" + bonusVal + "</span>")
+    })
   });
 }
 
@@ -108,7 +117,7 @@ var showBonusListener = function(){
   $("#new-char-race").on("change", function(){
     var charRace = $(this).val();
     $(".stat-bonus").text("   ");
-    getBonusesObj(charRace);
+    getRaceStats(charRace);
   });
 }
 
