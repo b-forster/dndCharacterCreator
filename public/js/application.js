@@ -99,16 +99,14 @@ var getRaceStats = function(race){
     var racialBonusesObj = {};
 
     for (var raceColumn in raceStatsObj) {
-      if(raceColumn.includes("_bonus")){
+      if(raceColumn.includes("_bonus") && raceStatsObj[raceColumn]!= '0'){
         racialBonusesObj[raceColumn.replace('_bonus','')] = response[raceColumn]
       }
     }
     console.log(racialBonusesObj)
     Object.keys(racialBonusesObj).forEach(function(stat){
-      var bonusVal = racialBonusesObj[stat];
-      // Need stats to show up on page
-      // console.log("#" + stat)
-      // $("#" + (stat)).append(" + <span class='bonus-val'>" + bonusVal + "</span>")
+      bonusVal = racialBonusesObj[stat].toString();
+      $("#" + (stat)).append(" + <span class='bonus-val'>" + bonusVal + "</span>")
     })
   });
 }
