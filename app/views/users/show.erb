@@ -2,7 +2,7 @@
 
 <ul id="char-list">
   <% @user.characters.each do |char| %>
-    <li><a href="/users/<%= @user.id %>/characters/<%= char.id %>"><%= char.name %></a> - Lv. <%= char.level %> <%= char.race %> <%= char.character_class %></li>
+    <li><a href="/users/<%= @user.id %>/characters/<%= char.id %>"><%= char.name %></a> - Lv. <%= char.level %> <%= char.race.name %> <%= char.character_class %></li>
   <% end %>
 </ul>
 
