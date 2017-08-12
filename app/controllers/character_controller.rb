@@ -8,15 +8,11 @@ get '/users/:user_id/characters/new' do
 end
 
 post '/users/:user_id/characters' do
-  p "*" * 100 
-
   race_name = params[:character][:race]
   race_object = Race.find_by(name: race_name)
   params[:character]["race"] = race_object
   params[:character]["user_id"] = current_user.id
-  p @character = Character.new(params[:character])
-
-  p params
+  @character = Character.new(params[:character])
 
   if @character.valid?
 
