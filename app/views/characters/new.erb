@@ -10,8 +10,8 @@
       <th><label for="new-char-race">Race: </label></th>
       <td><select class="handwritten" id="new-char-race" name="character[race]">
       <option></option>
-      <% @races_array.each do |race| %>
-          <option value="<%= race %>"><%= race %></option>
+      <% @races.each do |race| %>
+          <option value="<%= race.name %>"><%= race.name %></option>
       <% end %>
     </select></td>
     </tr>

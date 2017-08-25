@@ -3,11 +3,13 @@ get '/users/:user_id/characters' do
 end
 
 get '/users/:user_id/characters/new' do
-  @races_array = Dnd5eAdapter.generate_races_array
+  @races = Race.all
   erb :'/characters/new'
 end
 
 post '/users/:user_id/characters' do
+  @races = Race.all
+  
   race_name = params[:character][:race]
   race_object = Race.find_by(name: race_name)
   params[:character]["race"] = race_object
