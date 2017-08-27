@@ -127,7 +127,7 @@ var statRoll = function(){
         rolls.push(oneRoll);
       }
     rolls.sort().reverse()
-    var totalRoll = rolls[0] + rolls[1] + rolls[3]
+    var totalRoll = rolls[0] + rolls[1] + rolls[2]
     return totalRoll
 }
 
