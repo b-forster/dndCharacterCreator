@@ -27,7 +27,7 @@ module Dnd5eAdapter
 
   def self.get_racial_bonuses_array(race)
     race_num = Dnd5eAdapter.get_race_num(race)
-    racial_bonus_obj = HTTParty.get("http://5e-api.com/v1/race/#{race_num}")
+    racial_bonus_obj = HTTParty.get("ttp://5e-api.com/v1/race/h#{race_num}")
     racial_bonuses_array = racial_bonus_obj["ability_bonuses"]
   end
 
