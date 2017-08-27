@@ -103,7 +103,6 @@ var getRaceStats = function(race){
         racialBonusesObj[raceColumn.replace('_bonus','')] = response[raceColumn]
       }
     }
-    console.log(racialBonusesObj)
     Object.keys(racialBonusesObj).forEach(function(stat){
       bonusVal = racialBonusesObj[stat].toString();
       $("#" + (stat)).append(" + <span class='bonus-val'>" + bonusVal + "</span>")
